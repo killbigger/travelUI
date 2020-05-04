@@ -18,7 +18,7 @@ class Destination {
  List<Activity> activities = [
    Activity(
      imageUrl:'assets/images/activity.jpg',
-     name:'Bolgatty1',
+     name:'Bolgatvh kdhv',
       type:'Nature',
       startTimes:['9:00 am','11:00 am'],
       rating:5,
@@ -54,21 +54,21 @@ class Destination {
     country:'India',
     city: 'Kochi2',
     description: 'hdgfkhsdgfshfsb',
-    imageUrl: 'assets/images/kochi.jpg',
+    imageUrl: 'assets/images/hotel1.jpg',
     activities: activities
     ),
     Destination(
     country:'India',
     city: 'Kochi3',
     description: 'hdgfkhsdgfshfsb',
-    imageUrl: 'assets/images/kochi.jpg',
+    imageUrl: 'assets/images/hotel2.jpg',
     activities: activities
     ),
     Destination(
     country:'India',
     city: 'Kochi4',
     description: 'hdgfkhsdgfshfsb',
-    imageUrl: 'assets/images/kochi.jpg',
+    imageUrl: 'assets/images/hotel3.jpg',
     activities: activities
     )
   ];

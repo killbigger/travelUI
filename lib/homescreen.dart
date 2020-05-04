@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myapp/buildDestination.dart';
+import 'package:myapp/buildHotel.dart';
 
 class HomeScreen extends StatefulWidget {
   
@@ -9,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+ int pageIndex=0;
 IconData pressed;
   buildIcon(IconData icon) {
     return Container(
@@ -53,11 +56,43 @@ IconData pressed;
                  ],),
                ),
 
-               buildDestination(context)
+               buildDestination(context),
+               buildHotel(context)
          ],
          )
          ],
        ),
+        bottomNavigationBar: CupertinoTabBar(
+          activeColor:Theme.of(context).primaryColor ,
+          backgroundColor: Colors.white,
+          currentIndex: pageIndex,
+          onTap: (index){
+            setState(() {
+              pageIndex=index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              
+              icon:Icon(
+                Icons.search,
+                
+              ) ),
+              BottomNavigationBarItem(
+                
+              icon:Icon(
+                Icons.local_pizza,
+                
+              ) ),
+              BottomNavigationBarItem(
+              icon:Icon(
+                Icons.account_circle,
+                
+              ) ),
+          ]
+        )
+        
+        
     );
   }
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/models/destination_model.dart';
-import 'package:myapp/models/activity.dart';
+import 'package:myapp/models/hotel.dart';
 
-buildDestination( BuildContext context){
+buildHotel(BuildContext context){
   return Column(
       children:<Widget>[
         Padding(
@@ -10,7 +9,7 @@ buildDestination( BuildContext context){
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-          Text('Top Destinations',
+          Text('Top Hotels',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
@@ -31,9 +30,9 @@ buildDestination( BuildContext context){
     
     child: ListView.builder(
       scrollDirection: Axis.horizontal,
-      itemCount:destinations.length,
+      itemCount:hotels.length,
       itemBuilder: (BuildContext context,int index){
-        Destination destination = destinations[index];
+        Hotel hotel = hotels[index];
        
           return Padding(
             padding: const EdgeInsets.all(8),
@@ -59,13 +58,13 @@ buildDestination( BuildContext context){
                              children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.only(top: 55,left: 10),
-                                child: Text('${destination.activities.length} Activities',
+                                child: Text('${hotel.name}',
                             style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
                               ),
                               
                               Padding(
                                 padding: const EdgeInsets.only(left:10,right:4),
-                                child: Text(destination.description,style: TextStyle(
+                                child: Text(hotel.address,style: TextStyle(
                                   fontSize: 15
                                 ),),
                               ) 
@@ -81,20 +80,11 @@ buildDestination( BuildContext context){
                     Positioned(
                       left: 10,
                       child: Container(
-                          child:GestureDetector(
-                             onTap: (){
-                              //  print('Pressed Activity');
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>ActivityPage(destination)));
-                             },
-                              child: Hero(
-                                tag:destination.imageUrl,
-                                child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child:Image(image: AssetImage(destination.imageUrl),
-                                fit: BoxFit.cover,
-                                ),
-                                ),
-                              ),
+                          child:ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image(image: AssetImage(hotel.imageUrl),
+                            fit: BoxFit.cover,
+                            ),
                           ),
                       width:200,
                       height: 200,
@@ -102,18 +92,18 @@ buildDestination( BuildContext context){
                       ),
                     ),
 
-                Positioned(
-                  top:150,
-                  left:20,
-                  child: Text(destination.country,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,
-                  fontSize: 20,letterSpacing: 1
-                  ),)),
-                  Positioned(
-                  top:175,
-                  left:24,
-                  child: Text(destination.city,style: TextStyle(color: Colors.white,
-                  fontSize: 15,letterSpacing: 1
-                  ),))
+                // Positioned(
+                //   top:150,
+                //   left:20,
+                //   child: Text(destination.country,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,
+                //   fontSize: 20,letterSpacing: 1
+                //   ),)),
+                //   Positioned(
+                //   top:175,
+                //   left:24,
+                //   child: Text(destination.city,style: TextStyle(color: Colors.white,
+                //   fontSize: 15,letterSpacing: 1
+                //   ),))
                    
                 ],
               ),
